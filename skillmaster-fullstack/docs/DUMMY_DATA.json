@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "name": "Admin User",
+      "email": "admin@skillmaster.com",
+      "password": "Admin@123",
+      "role": "admin"
+    },
+    {
+      "name": "Elite Instructor",
+      "email": "faculty@skillmaster.com",
+      "password": "Faculty@123",
+      "role": "faculty"
+    },
+    {
+      "name": "Learner One",
+      "email": "student@skillmaster.com",
+      "password": "Student@123",
+      "role": "student"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Mastering the MERN Stack",
+      "category": "Web Development",
+      "price": 2999,
+      "level": "Intermediate",
+      "isPublished": true
+    },
+    {
+      "title": "Quantum Physics for Beginners",
+      "category": "Science",
+      "price": 0,
+      "level": "Beginner",
+      "isPublished": true
+    }
+  ]
+}
