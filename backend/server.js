@@ -14,7 +14,7 @@ const app = express();
 // Security middleware
 app.use(helmet({ crossOriginResourcePolicy: false }));
 app.use(cors({
-    origin: "http://localhost:5173",
+    origin: process.env.CLIENT_URL,
     credentials: true
 }));
 app.use(morgan('dev'));
