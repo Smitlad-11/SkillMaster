@@ -58,9 +58,9 @@ npm run dev       # Start on http://localhost:5173
 
 | Role | Email | Password |
 |------|-------|----------|
-| Admin | admin@skillmaster.com | Admin@123 |
-| Faculty | priya@skillmaster.com | Faculty@123 |
-| Student | rohan@student.com | Student@123 |
+| Admin | admin@skillmaster.com | Skillmaster@Admin18 |
+| Faculty | priyapatel@gmail.com | Priya@123 |
+| Student | rohan@student.com | Rohan@123 |
 
 ---
 

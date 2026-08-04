@@ -97,11 +97,13 @@ SkillMaster is a world-class, high-fidelity Learning Management System (LMS) des
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 **Smitkumar Lad**
 
 MCA Student | MERN Stack Developer
 
-GitHub:
-https://github.com/Smitlad-11
+GitHub: https://github.com/Smitlad-11
+
+Project Repository:
+https://github.com/Smitlad-11/SkillMaster
