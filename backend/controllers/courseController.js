@@ -54,6 +54,10 @@ exports.getCourse = async (req, res) => {
 // @desc    Create course
 // @route   POST /api/courses
 exports.createCourse = async (req, res) => {
+  console.log("========== CREATE COURSE ==========");
+  console.log("BODY:", req.body);
+  console.log("FILE:", req.file);
+  console.log("==================================");
   const { title, description, price, category, level, tags, requirements, whatYouLearn, totalDuration } = req.body;
 
   const course = await Course.create({
@@ -71,6 +75,10 @@ exports.createCourse = async (req, res) => {
 // @desc    Update course
 // @route   PUT /api/courses/:id
 exports.updateCourse = async (req, res) => {
+  console.log("========== UPDATE COURSE ==========");
+  console.log("BODY:", req.body);
+  console.log("FILE:", req.file);
+  console.log("==================================");
   let course = await Course.findById(req.params.id);
   if (!course) return res.status(404).json({ message: 'Course not found' });
 

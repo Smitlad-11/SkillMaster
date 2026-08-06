@@ -4,7 +4,8 @@ import api from '../../services/api'
 import toast from 'react-hot-toast'
 import Spinner from '../../components/Spinner'
 
-const API_URL = 'http://localhost:5000'
+const API_URL =
+  import.meta.env.VITE_API_URL.replace('/api', '')
 
 const EditCourse = () => {
   const { courseId } = useParams()
