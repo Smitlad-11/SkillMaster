@@ -66,7 +66,7 @@ exports.createCourse = async (req, res) => {
     requirements: requirements ? JSON.parse(requirements) : [],
     whatYouLearn: whatYouLearn ? JSON.parse(whatYouLearn) : [],
     faculty: req.user._id,
-    thumbnail: req.file ? `/uploads/thumbnails/${req.file.filename}` : '',
+    thumbnail: req.file ? req.file.path : '',
   });
 
   res.status(201).json(course);
@@ -87,7 +87,9 @@ exports.updateCourse = async (req, res) => {
   }
 
   const updates = { ...req.body };
-  if (req.file) updates.thumbnail = `/uploads/thumbnails/${req.file.filename}`;
+  if (req.file) {
+    updates.thumbnail = req.file.path;
+  }
   if (updates.tags) updates.tags = JSON.parse(updates.tags);
 
   course = await Course.findByIdAndUpdate(req.params.id, updates, { new: true, runValidators: true });

@@ -1,6 +1,7 @@
 // server.js - Main entry point for SkillMaster backend
 require('express-async-errors');
 require("dotenv").config();
+const cloudinary = require("./config/cloudinary");
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -50,6 +51,7 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
     try {
         await connectDB();
+        console.log("Cloudinary:", cloudinary.config().cloud_name);
         app.listen(PORT, () => console.log(`SkillMaster server running on port ${PORT}`));
     } catch (error) {
         console.error('Server failed to start:', error.message);
