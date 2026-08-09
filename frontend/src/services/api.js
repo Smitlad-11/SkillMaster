@@ -1,8 +1,12 @@
 // services/api.js
 import axios from 'axios'
 
+const API_URL = import.meta.env.VITE_API_URL
+
+console.log('SkillMaster API URL:', API_URL)
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: API_URL,
 })
 
 api.interceptors.request.use((config) => {

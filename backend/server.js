@@ -14,13 +14,27 @@ const app = express();
 
 // Security middleware
 app.use(helmet({ crossOriginResourcePolicy: false }));
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://skillmaster-frontend.onrender.com"
+];
+
 app.use(cors({
-    origin: [
-        "http://localhost:5173",
-        "https://skillmaster-frontend.onrender.com"
-    ],
-    credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
 }));
+
+app.options("*", cors());
+
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
