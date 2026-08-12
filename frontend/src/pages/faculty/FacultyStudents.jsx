@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -37,7 +38,7 @@ const FacultyStudents = () => {
           {courses.map(course => (
             <Link key={course._id} to={`/faculty/courses/${course._id}/students`} className="bg-white dark:bg-gray-800 border dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-lg transition">
               <img
-                src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/400x200/9333ea/white?text=Course'}
+                src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/400x200/9333ea/white?text=Course'}
                 alt={course.title} className="w-full h-32 object-cover"
               />
               <div className="p-5">

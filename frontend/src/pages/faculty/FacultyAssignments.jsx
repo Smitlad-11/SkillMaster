@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -44,7 +45,7 @@ const FacultyAssignments = () => {
               <div key={course._id} className="p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition">
                 <div className="flex items-center gap-4">
                   <img
-                    src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/100x100/9333ea/white?text=C'}
+                    src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/100x100/9333ea/white?text=C'}
                     alt="" className="w-16 h-12 rounded object-cover shadow-sm"
                   />
                   <div>

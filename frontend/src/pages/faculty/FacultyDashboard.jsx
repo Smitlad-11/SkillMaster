@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -105,7 +106,7 @@ const FacultyDashboard = () => {
                 {courses.slice(0, 3).map(course => (
                   <div key={course._id} className="card group !p-6 flex flex-col md:flex-row items-center gap-6 border-2 border-transparent hover:border-primary-100 transition-all duration-500">
                     <img 
-                      src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/120x80/82308E/white?text=CP'} 
+                      src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/120x80/82308E/white?text=CP'} 
                       className="w-full md:w-32 h-24 rounded-2xl object-cover shadow-lg group-hover:scale-105 transition-transform"
                     />
                     <div className="flex-1 text-center md:text-left">

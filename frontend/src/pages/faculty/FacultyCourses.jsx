@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -56,7 +57,7 @@ const FacultyCourses = () => {
             <div key={course._id} className="card !p-0 group overflow-hidden border-2 border-transparent hover:border-primary-100 transition-all duration-500">
               <div className="relative h-48 overflow-hidden">
                 <img
-                  src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/400x200/82308E/white?text=Course'}
+                  src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/400x200/82308E/white?text=Course'}
                   alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute top-4 right-4">

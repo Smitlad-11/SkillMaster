@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import api from '../../services/api'
 import ProgressBar from '../../components/ProgressBar'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl'
 
 const API_URL = 'http://localhost:5000'
 
@@ -96,8 +97,9 @@ const StudentDashboard = () => {
                 <div key={course._id} className="card !p-0 group overflow-hidden border-2 border-transparent hover:border-primary-100 transition-all duration-500">
                   <div className="relative h-48 overflow-hidden">
                     <img
-                      src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/600x400/82308E/white?text=In-Progress'}
-                      alt={course.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                      src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/600x400/82308E/white?text=In-Progress'}
+                      alt={course.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
                     <div className="absolute bottom-4 left-6 right-6">

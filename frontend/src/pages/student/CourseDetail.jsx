@@ -6,6 +6,7 @@ import { fetchCourse } from '../../redux/slices/courseSlice'
 import { purchaseCourse } from '../../services/paymentService'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl'
 
 const API_URL = 'http://localhost:5000'
 
@@ -132,8 +133,9 @@ const CourseDetail = () => {
           <div className="card sticky top-32 !p-6">
             <div className="relative h-56 rounded-2xl overflow-hidden mb-8 shadow-xl">
                <img
-                src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/400x200/82308E/white?text=SkillMaster'}
-                alt={course.title} className="w-full h-full object-cover"
+                  src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/400x200/82308E/white?text=SkillMaster'}
+                  alt={course.title}
+                  className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-black/20"></div>
             </div>

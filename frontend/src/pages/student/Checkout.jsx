@@ -5,6 +5,7 @@ import { fetchCourse } from '../../redux/slices/courseSlice'
 import { purchaseCourse } from '../../services/paymentService'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -73,7 +74,7 @@ const Checkout = () => {
                <div className="flex flex-col md:flex-row gap-10 items-center">
                   <div className="w-full md:w-56 h-40 flex-shrink-0 relative">
                      <img 
-                       src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/400x300/82308E/white?text=SkillMaster'} 
+                       src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/400x300/82308E/white?text=SkillMaster'}
                        className="w-full h-full object-cover rounded-3xl shadow-2xl group-hover:scale-105 transition-transform"
                      />
                      <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10"></div>

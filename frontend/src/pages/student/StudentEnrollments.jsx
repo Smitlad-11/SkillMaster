@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import api from '../../services/api'
 import ProgressBar from '../../components/ProgressBar'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl';
 
 const API_URL = 'http://localhost:5000'
 
@@ -53,7 +54,7 @@ const StudentEnrollments = () => {
             <div key={course._id} className="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 flex flex-col group">
               <div className="relative overflow-hidden aspect-[16/9]">
                 <img
-                  src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/600x400/2563EB/white?text=Course'}
+                  src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/600x400/2563EB/white?text=Course'}
                   alt={course.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

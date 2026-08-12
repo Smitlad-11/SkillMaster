@@ -1,5 +1,6 @@
 // components/CourseCard.jsx
 import { Link } from 'react-router-dom'
+import getImageUrl from '../utils/getImageUrl';
 
 const CourseCard = ({ course }) => {
   const API_URL = 'http://localhost:5000'
@@ -8,7 +9,7 @@ const CourseCard = ({ course }) => {
     <div className="card group !p-0 overflow-hidden hover:-translate-y-2 transition-all duration-500">
       <div className="relative overflow-hidden h-52">
         <img
-          src={course.thumbnail ? `${API_URL}${course.thumbnail}` : 'https://placehold.co/400x200/82308E/white?text=SkillMaster+Premium'}
+          src={course.thumbnail ? getImageUrl(course.thumbnail) : 'https://placehold.co/400x200/82308E/white?text=SkillMaster+Premium'}
           alt={course.title}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
         />
