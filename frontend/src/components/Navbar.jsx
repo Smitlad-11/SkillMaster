@@ -2,6 +2,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { logout } from '../redux/slices/authSlice'
 import { toggleDarkMode } from '../redux/slices/uiSlice'
+import getImageUrl from '../utils/getImageUrl';
 
 const Navbar = () => {
   const dispatch = useDispatch()
@@ -70,7 +71,11 @@ const Navbar = () => {
                         <p className="text-[9px] font-black text-primary-600 uppercase tracking-widest mt-0.5 opacity-80">{user.role}</p>
                      </div>
                      {user.avatar ? (
-                       <img src={`http://localhost:5000${user.avatar}`} className="w-12 h-12 rounded-2xl object-cover ring-4 ring-primary-50 dark:ring-primary-900/20" />
+                       <img
+                          src={getImageUrl(user.avatar)}
+                          alt={user.name}
+                          className="w-12 h-12 rounded-2xl object-cover ring-4 ring-primary-50 dark:ring-primary-900/20"
+                          />
                      ) : (
                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 flex items-center justify-center font-black text-white text-lg shadow-xl uppercase">
                          {user.name?.charAt(0)}
