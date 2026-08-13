@@ -63,7 +63,7 @@ exports.updateProfile = async (req, res) => {
   if (req.body.name) user.name = req.body.name;
   if (req.body.bio) user.bio = req.body.bio;
   if (req.body.phone) user.phone = req.body.phone;
-  if (req.file) user.avatar = `/uploads/thumbnails/${req.file.filename}`;
+  if (req.file) user.avatar = req.file.path;
   if (req.body.password) {
     const passwordCheck = validatePassword(req.body.password);
     if (!passwordCheck.isValid) {
