@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../../services/api';
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState('');
@@ -9,35 +10,35 @@ const ForgotPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setMessage('');
-    setError('');
-    setResetUrl('');
+  e.preventDefault();
+  setIsLoading(true);
+  setMessage('');
+  setError('');
+  setResetUrl('');
 
-    try {
-      const response = await fetch('http://localhost:5000/api/auth/forgot-password', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      const data = await response.json();
+  try {
+    const { data } = await api.post('/auth/forgot-password', { email });
 
-      if (response.ok) {
-        if (data.resetUrl) {
-          setResetUrl(data.resetUrl);
-        } else {
-          setMessage(data.message || 'Email sent successfully. Check your inbox.');
-        }
-      } else {
-        setError(data.message || 'Failed to send reset email.');
-      }
-    } catch (err) {
-      setError('An error occurred. Please try again.');
-    } finally {
-      setIsLoading(false);
+    if (data.resetUrl) {
+      setResetUrl(data.resetUrl);
+    } else {
+      setMessage(data.message || 'Email sent successfully. Check your inbox.');
     }
-  };
+  } catch (err) {
+  console.error('Forgot Password Error:', err);
+  console.error('Response:', err.response?.data);
+  console.error('Status:', err.response?.status);
+
+  setError(
+    err.response?.data?.message ||
+    err.message ||
+    'An error occurred. Please try again.'
+  );
+
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8">

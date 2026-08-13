@@ -92,13 +92,14 @@ exports.forgotPassword = async (req, res) => {
   await user.save({ validateBeforeSave: false });
 
   // Create reset URL
-  const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
-  const message = `
-    <h1>You have requested a password reset</h1>
-    <p>Please click on the following link to reset your password:</p>
-    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
-  `;
+    const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
 
+    const message = `
+      <h1>You have requested a password reset</h1>
+      <p>Please click on the following link to reset your password:</p>
+      <a href=${resetUrl} clicktracking=off>${resetUrl}</a>
+    `;
+    
   try {
     if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
       return res.status(500).json({ message: 'Email service is not configured on the server. Please contact administrator.' });
