@@ -24,7 +24,8 @@
     "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^8.0.2",
     "pdfkit": "^0.13.0",
-    "razorpay": "^2.9.2"
+    "razorpay": "^2.9.2",
+    "resend": "^6.19.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
