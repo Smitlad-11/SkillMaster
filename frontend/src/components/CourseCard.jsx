@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import getImageUrl from '../utils/getImageUrl';
 
 const CourseCard = ({ course }) => {
-  const API_URL = 'http://localhost:5000'
+  
 
   return (
     <div className="card group !p-0 overflow-hidden hover:-translate-y-2 transition-all duration-500">

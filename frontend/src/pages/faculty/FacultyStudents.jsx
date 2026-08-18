@@ -4,7 +4,7 @@ import api from '../../services/api'
 import Spinner from '../../components/Spinner'
 import getImageUrl from '../../utils/getImageUrl';
 
-const API_URL = 'http://localhost:5000'
+
 
 const FacultyStudents = () => {
   const [courses, setCourses] = useState([])

@@ -2,8 +2,9 @@ import { useState, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateProfile } from '../../redux/slices/authSlice'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl'
 
-const API_URL = 'http://localhost:5000'
+
 
 const Profile = () => {
   const { user, loading } = useSelector(state => state.auth)
@@ -17,7 +18,9 @@ const Profile = () => {
     bio: user?.bio || '',
   })
   const [avatarPreview, setAvatarPreview] = useState(
-    user?.avatar ? `${API_URL}${user.avatar}` : `https://ui-avatars.com/api/?name=${user?.name}&background=2563EB&color=fff`
+    user?.avatar
+      ? getImageUrl(user.avatar)
+      : `https://ui-avatars.com/api/?name=${user?.name}&background=2563EB&color=fff`
   )
   const [avatarFile, setAvatarFile] = useState(null)
   

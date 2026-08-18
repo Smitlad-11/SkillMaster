@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl'
 
-const API_URL = 'http://localhost:5000'
+
 
 const Certificates = () => {
   const [progress, setProgress] = useState([])
@@ -46,7 +47,7 @@ const Certificates = () => {
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-8 font-medium">Completed on {new Date(p.updatedAt).toLocaleDateString()}</p>
                 
                 <a 
-                  href={`${API_URL}${p.certificateUrl}`} 
+                  href={getImageUrl(p.certificateUrl)} 
                   target="_blank" 
                   rel="noreferrer"
                   className="w-full text-center py-3 rounded-xl bg-primary-50 text-primary-700 hover:bg-primary-600 hover:text-white dark:bg-primary-900/30 dark:text-primary-300 dark:hover:bg-primary-600 dark:hover:text-white font-bold transition-colors duration-300 shadow-sm hover:shadow-md"

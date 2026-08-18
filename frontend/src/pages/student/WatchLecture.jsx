@@ -6,8 +6,9 @@ import api from '../../services/api'
 import ProgressBar from '../../components/ProgressBar'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl'
 
-const API_URL = 'http://localhost:5000'
+
 
 const WatchLecture = () => {
   const { courseId } = useParams()
@@ -75,7 +76,7 @@ const WatchLecture = () => {
             <ProgressBar percentage={progress.percentage} />
           </div>
           {progress.certificateUrl && (
-            <a href={`${API_URL}${progress.certificateUrl}`} target="_blank" rel="noreferrer"
+            <a href={getImageUrl(progress.certificateUrl)} target="_blank" rel="noreferrer"
               className="mt-4 block text-center bg-green-500 hover:bg-green-600 text-white text-[10px] font-black uppercase tracking-widest py-2 rounded-xl transition shadow-lg shadow-green-500/20">
               🏆 Download Certificate
             </a>
@@ -113,7 +114,7 @@ const WatchLecture = () => {
             {/* Video Player Section */}
             <div className="bg-black aspect-video w-full flex-shrink-0 shadow-2xl relative z-10">
               <ReactPlayer
-                url={currentLecture.videoUrl?.startsWith('http') ? currentLecture.videoUrl : `${API_URL}${currentLecture.videoUrl}`}
+                url={getImageUrl(currentLecture.videoUrl)}
                 width="100%" height="100%"
                 controls playing={false}
               />
@@ -139,7 +140,7 @@ const WatchLecture = () => {
                     </button>
 
                     {currentLecture.pdfUrl && (
-                      <a href={currentLecture.pdfUrl?.startsWith('http') ? currentLecture.pdfUrl : `${API_URL}${currentLecture.pdfUrl}`} target="_blank" rel="noreferrer"
+                      <a href={getImageUrl(currentLecture.pdfUrl)} target="_blank" rel="noreferrer"
                         className="btn-secondary !px-8 !py-4 shadow-premium flex items-center gap-2 hover:bg-white dark:hover:bg-gray-700">
                         📄 <span className="text-[10px] font-black uppercase tracking-[0.2em]">Study Material</span>
                       </a>

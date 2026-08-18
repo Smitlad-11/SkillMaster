@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
+import getImageUrl from '../../utils/getImageUrl'
 
 const ViewStudents = () => {
   const { courseId } = useParams()
@@ -45,7 +46,11 @@ const ViewStudents = () => {
                 <td className="px-6 py-5">
                   <div className="flex items-center gap-4">
                     {student.avatar ? (
-                      <img src={`http://localhost:5000${student.avatar}`} className="w-10 h-10 rounded-xl object-cover ring-2 ring-transparent group-hover:ring-primary-500 transition-all" />
+                      <img
+                        src={getImageUrl(student.avatar)}
+                        alt={student.name}
+                        className="w-10 h-10 rounded-xl object-cover ring-2 ring-transparent group-hover:ring-primary-500 transition-all"
+                      />
                     ) : (
                       <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center text-white text-xs font-black shadow-lg">
                         {student.name.charAt(0)}
@@ -108,7 +113,11 @@ const ViewStudents = () => {
               <div className="px-10 pb-10 -mt-16 text-center">
                  <div className="relative inline-block mb-6">
                     {selectedStudent.avatar ? (
-                      <img src={`http://localhost:5000${selectedStudent.avatar}`} className="w-32 h-32 rounded-3xl object-cover ring-8 ring-white dark:ring-gray-900 shadow-2xl mx-auto" />
+                     <img
+                        src={getImageUrl(selectedStudent.avatar)}
+                        alt={selectedStudent.name}
+                        className="w-32 h-32 rounded-3xl object-cover ring-8 ring-white dark:ring-gray-900 shadow-2xl mx-auto"
+                      /> 
                     ) : (
                       <div className="w-32 h-32 rounded-3xl bg-primary-600 flex items-center justify-center text-white text-4xl font-black ring-8 ring-white dark:ring-gray-900 shadow-2xl mx-auto uppercase">
                         {selectedStudent.name.charAt(0)}

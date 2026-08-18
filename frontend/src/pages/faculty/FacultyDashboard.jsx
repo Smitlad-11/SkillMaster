@@ -7,7 +7,7 @@ import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
 import getImageUrl from '../../utils/getImageUrl';
 
-const API_URL = 'http://localhost:5000'
+
 
 const FacultyDashboard = () => {
   const { user } = useSelector(state => state.auth)

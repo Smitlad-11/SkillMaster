@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import api from '../../services/api'
 
 
 const Contact = () => {
@@ -27,19 +28,18 @@ const Contact = () => {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/contacts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
-      const data = await response.json();
+      const response = await api.post('/contacts', formData);
+      const data = response.data;
 
-      if (response.ok) {
-        setSuccess('Message submitted successfully! The admin will review it shortly.');
-        setFormData({ name: '', email: '', role: 'student', message: '' });
-      } else {
-        setError(data.message || 'Failed to submit message.');
-      }
+      setSuccess(
+        data.message || 'Message submitted successfully! The admin will review it shortly.'
+      );
+      setFormData({
+        name: '',
+        email: '',
+        role: 'student',
+        message: ''
+      });
     } catch (err) {
       setError('An error occurred. Please try again.');
     } finally {

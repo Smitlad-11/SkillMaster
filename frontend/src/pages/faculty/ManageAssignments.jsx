@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom'
 import api from '../../services/api'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
+import getImageUrl from '../../utils/getImageUrl'
 
 const ManageAssignments = () => {
   const { courseId } = useParams()
@@ -244,7 +245,15 @@ const ManageAssignments = () => {
                           <td className="px-5 py-4">
                             <div className="flex flex-col gap-1">
                               {sub.fileUrl ? (
-                                <a href={`http://localhost:5000${sub.fileUrl}`} target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline text-xs flex items-center gap-1" title="Download File">📄 View Proof</a>
+                                <a
+                                  href={getImageUrl(sub.fileUrl)}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-blue-600 dark:text-blue-400 hover:underline text-xs flex items-center gap-1"
+                                  title="Download File"
+                                >
+                                  📄 View Proof
+                                </a>
                               ) : <span className="text-gray-400 text-xs">No file</span>}
                               {sub.link && (
                                 <a href={sub.link} target="_blank" rel="noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline text-xs flex items-center gap-1" title="External Link">🔗 View Link</a>

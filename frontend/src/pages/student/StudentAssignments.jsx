@@ -3,8 +3,9 @@ import api from '../../services/api'
 import Spinner from '../../components/Spinner'
 import toast from 'react-hot-toast'
 import { useSelector } from 'react-redux'
+import getImageUrl from '../../utils/getImageUrl'
 
-const API_URL = 'http://localhost:5000'
+
 
 const StudentAssignments = () => {
   const { user } = useSelector(state => state.auth)
@@ -76,7 +77,11 @@ const StudentAssignments = () => {
                   {/* Left Column: Course Context */}
                   <div className="md:w-56 bg-gray-50/50 dark:bg-gray-800/50 p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-gray-100 dark:border-gray-700 relative overflow-hidden">
                     <div className="w-20 h-20 mb-4 rounded-2xl overflow-hidden shadow-sm ring-1 ring-black/5 bg-white dark:bg-gray-700 transition-transform group-hover:scale-105 duration-500">
-                      <img src={assign.course?.thumbnail ? `${API_URL}${assign.course.thumbnail}` : 'https://placehold.co/200x200/2563EB/ffffff?text=C'} alt="" className="w-full h-full object-cover" />
+                      <img
+                        src={assign.course?.thumbnail ? getImageUrl(assign.course.thumbnail) : 'https://placehold.co/200x200/2563EB/ffffff?text=C'}
+                        alt={assign.course?.title || 'Course'}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h4 className="font-bold text-gray-900 dark:text-white text-center text-sm leading-tight balance">{assign.course?.title || 'Unknown Course'}</h4>
                     <p className="text-xs text-gray-500 mt-2 font-medium bg-white dark:bg-gray-700 px-3 py-1 rounded-full border border-gray-100 dark:border-gray-600">
@@ -121,9 +126,14 @@ const StudentAssignments = () => {
                              </a>
                           )}
                           {assign.fileUrl && (
-                             <a href={`${API_URL}${assign.fileUrl}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-xl shadow-sm border border-blue-100 dark:border-blue-800/50 hover:shadow-md hover:-translate-y-0.5 transition-all">
-                               <span>📄</span> Download File
-                             </a>
+                             <a
+                                href={getImageUrl(assign.fileUrl)}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 bg-white dark:bg-gray-800 px-4 py-2 rounded-xl shadow-sm border border-blue-100 dark:border-blue-800/50 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                              >
+                                <span>📄</span> Download File
+                              </a>
                           )}
                         </div>
                       </div>
@@ -149,7 +159,12 @@ const StudentAssignments = () => {
                             
                             <div className="flex gap-2 shrink-0">
                               {mySubmission.fileUrl && (
-                                <a href={`${API_URL}${mySubmission.fileUrl}`} target="_blank" rel="noreferrer" className="text-sm px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition font-medium text-gray-700 dark:text-gray-300">
+                                <a
+                                  href={getImageUrl(mySubmission.fileUrl)}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="text-sm px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition font-medium text-gray-700 dark:text-gray-300"
+                                >
                                   View File
                                 </a>
                               )}

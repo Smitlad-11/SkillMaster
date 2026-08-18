@@ -5,7 +5,7 @@ import ProgressBar from '../../components/ProgressBar'
 import Spinner from '../../components/Spinner'
 import getImageUrl from '../../utils/getImageUrl';
 
-const API_URL = 'http://localhost:5000'
+
 
 const StudentEnrollments = () => {
   const [enrolledCourses, setEnrolledCourses] = useState([])
