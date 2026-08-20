@@ -1,109 +1,129 @@
 # SkillMaster - Premium E-Learning Management System
 
-SkillMaster is a world-class, high-fidelity Learning Management System (LMS) designed for a premium educational experience. Inspired by industry leaders like BYJU'S, it features a sophisticated design language, robust role-based access control, and a full-stack MERN architecture.
+SkillMaster is a full-stack Learning Management System (LMS) built to provide a modern, role-based online learning experience for students, faculty, and administrators.
 
-## 🚀 Quick Links
-- [Setup & Installation Guide](./docs/SETUP_GUIDE.md)
-- [API Documentation](./docs/API_DOCUMENTATION.md)
-- [Architecture & Folder Structure](./docs/ARCHITECTURE.md)
-- [Deployment Guide](./docs/DEPLOYMENT.md)
+The platform includes course management, lectures, assignments, progress tracking, certificates, payments, feedback, live sessions, and responsive dashboards.
+
+## 🚀 Live Demo
+
+👉 **[Open SkillMaster Live](https://skillmaster-frontend.onrender.com)**
+
+> You can explore the live project directly from the deployed application.
+
+---
+
+## ✨ Project Overview
+
+SkillMaster is designed around three major user roles:
+
+- **Student** – Browse courses, enroll, learn through video lectures, submit assignments, track progress, earn certificates, and manage profile.
+- **Faculty** – Create and manage courses, upload lectures and study materials, manage assignments, track students, answer queries, and manage live sessions.
+- **Admin** – Manage users, courses, platform analytics, revenue, feedback, and administrative settings.
+
+---
 
 ## 🔷 Key Features
 
-### 1️⃣ Administrative Control
-- **Intelligence Dashboard**: Real-time analytics with interactive charts.
-- **Course Lifecycle**: Full CRUD operations for courses and curricula.
-- **User Oversight**: Granular management of students and faculty, including blocking/unblocking.
-- **Financial Reporting**: Instant CSV exports of platform performance and revenue.
+### 👨‍💼 Admin Features
 
-### 2️⃣ Student Learning Experience
-- **Interactive Portal**: High-end course browser and detailed detail pages.
-- **Premium Checkout**: Secure Razorpay integration for seamless enrollments.
-- **Learning Path**: Progress tracking with live bars and course completion certificates.
-- **Engagement**: Integrated Q&A system and support for live masterclasses.
+- **Intelligence Dashboard** with platform statistics and revenue analytics
+- **Course Management** with complete CRUD operations
+- Publish / Unpublish courses
+- **User Management** for students and faculty
+- Block / Unblock users
+- Revenue and order monitoring
+- CSV platform report download
+- Feedback management
+- Administrative settings
 
-### 3️⃣ Faculty Empowerment
-- **Content Hub**: Streamlined lecture uploading (Video + PDF).
-- **Academic Management**: Assignment creation and direct student progress tracking.
-- **Interaction**: Resolve student queries and schedule live interactive sessions.
+### 👨‍🎓 Student Features
 
-## 🔷 Technology Stack
-- **Frontend**: React.js (Vite), Tailwind CSS, Redux Toolkit, Framer Motion.
-- **Backend**: Node.js, Express.js, MongoDB (Mongoose), JWT Authentication.
-- **Payments**: Razorpay Gateway.
-- **Infrastructure**: Multer (File uploads), Bcrypt (Security), Helmet (Headers).
+- Modern course browser
+- Course details and enrollment
+- Razorpay-based course checkout
+- Video lecture learning
+- PDF study materials
+- Learning progress tracking
+- Course completion certificates
+- Assignment viewing and submission
+- Faculty Q&A support
+- Live sessions
+- Payment history
+- Profile and password management
+- Responsive student dashboard
 
----
+### 👨‍🏫 Faculty Features
 
-# 📸 Project Screenshots
-
-## 🏠 Home Page
-
-![Home Page](./screenshots/Home.png)
-
----
-
-## 🔐 Login Page
-
-![Login Page](./screenshots/Login.png)
-
----
-
-## 👨‍🎓 Student Dashboard
-
-![Student Dashboard](./screenshots/Student_Dashboard.png)
-
----
-
-## 👨‍🏫 Faculty Dashboard
-
-![Faculty Dashboard](./screenshots/Faculty_Dashboard.png)
+- Faculty dashboard
+- Create, edit, publish and manage courses
+- Upload course thumbnails
+- Upload lecture videos and study materials
+- Course curriculum management
+- Assignment creation and editing
+- Student progress tracking
+- Student profile viewing
+- Student query management
+- Live session management
+- Faculty profile and settings
 
 ---
 
-## 👨‍💼 Admin Dashboard
+## 🧩 Technology Stack
 
-![Admin Dashboard](./screenshots/Admin_Dashboard.png)
+### Frontend
 
----
+- React.js
+- Vite
+- Tailwind CSS
+- Redux Toolkit
+- React Router
+- Recharts
+- React Player
+- React Hot Toast
 
-## 📚 Course Details Page
+### Backend
 
-![Course Details](./screenshots/Courses%20Details.png)
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Bcrypt
+- Helmet
+- Multer
 
----
+### Cloud & Services
 
-# 🎯 Resume Highlights
-
-- Developed a Full-Stack MERN Learning Management System (LMS).
-- Implemented JWT Authentication and Role-Based Access Control.
-- Integrated Razorpay Payment Gateway for secure course enrollments.
-- Built dedicated Student, Faculty, and Admin dashboards.
-- Developed RESTful APIs using Node.js and Express.js.
-- Utilized MongoDB for scalable data storage and management.
-- Implemented assignment tracking, certificates, feedback, and live sessions.
-- Designed responsive UI using React.js, Vite, Tailwind CSS, and Redux Toolkit.
-
----
-
-# 🚀 Future Enhancements
-
-- AI-Powered Course Recommendations
-- Mobile Application (Android/iOS)
-- Real-Time Chat & Video Sessions
-- Attendance Analytics Dashboard
-- Multi-Language Support
-- Advanced Learning Analytics
+- **Cloudinary** – Image and file storage
+- **Razorpay** – Course payments
+- **Resend** – Password-reset email service
+- **Render** – Production deployment
 
 ---
 
-## 👨‍💻 Author
+## 🏗️ Project Architecture
 
-**Smitkumar Lad**
-
-MCA Student | MERN Stack Developer
-
-GitHub: https://github.com/Smitlad-11
-
-Project Repository:
-https://github.com/Smitlad-11/SkillMaster
+```text
+SkillMaster
+│
+├── frontend
+│   ├── src
+│   │   ├── components
+│   │   ├── layouts
+│   │   ├── pages
+│   │   ├── redux
+│   │   ├── services
+│   │   └── utils
+│   │
+│   └── ...
+│
+├── backend
+│   ├── config
+│   ├── controllers
+│   ├── middleware
+│   ├── models
+│   ├── routes
+│   ├── utils
+│   └── server.js
+│
+└── docs
